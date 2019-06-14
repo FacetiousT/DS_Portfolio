@@ -1,3 +1,7 @@
+#an automated report that pulls millions of users from different sources, dices them by dimensions,
+#calculates audience overlap between dimensions
+#then formats and outputs results into Google Sheets
+
 import time
 import datetime
 import logging
