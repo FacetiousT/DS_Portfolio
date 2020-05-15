@@ -3,12 +3,12 @@
 
 # In[21]:
 
-
-def wait():
-    
+#'busy' cursor animation
+def wait():    
     root.config(cursor="wait") 
     threading.Thread(target=split_df).start() 
 
+#function to split the specified file into chunks    
 def split_df():
     
     #read in the file
@@ -67,11 +67,7 @@ def split_df():
     root.config(cursor="")
     root.update() 
 
-
-# In[22]:
-
-
-#set the dir
+#import main libraries
 from os import listdir, getcwd, access, R_OK, W_OK, path
 from tkinter import filedialog
 from tkinter import *
@@ -90,6 +86,7 @@ file = ''
 splits = 0
 split_size = 0
 
+#browse for file UI
 def browse_file():
     global file
     file = filedialog.askopenfilename(initialdir = cwd,title = "Select file",filetypes = (("csv files","*.csv")
@@ -100,6 +97,7 @@ def browse_file():
     w = Label(root, text=file_snipped_l[len_],padx=5)
     w.grid(row=1,column=3,columnspan=2,sticky="W")
 
+#specify path UI
 def browse_path():
     # Allow user to select a directory and store it in global var
     # called folder_path
@@ -135,7 +133,6 @@ y = (hs/2) - (h/2)
 #set dimensions
 root.geometry('%dx%d+%d+%d' % (w, h, x, y))
 
-
 folder_path = StringVar()
 
 #empty row
@@ -167,10 +164,3 @@ elbl3 = Label(root,text="")
 elbl3.grid(row=4, column=3, padx=5,pady=5)
 
 root.mainloop()
-
-
-# In[ ]:
-
-
-
-
